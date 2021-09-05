@@ -83,7 +83,7 @@ function sumArray(arr){
     console.log(sum)
 }
 
-f =[5,10,10,7]
+let f =[5,10,10,7]
 sumArray(f)
 
 //Coding challenge #11: Calculate the average of the numbers in an array of numbers
@@ -95,7 +95,7 @@ function sumArray(arr){
     console.log(sum/size)
 }
 
-f =[5,10,10,7]
+let f =[5,10,10,7]
 sumArray(f)
 
 //Coding challenge #12: Create a function that receives an array of numbers and returns an array containing only the positive numbers.
@@ -108,6 +108,74 @@ function postiveVibes(arr) {
     console.log(output)
 }
 
-var ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+let ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
 
 postiveVibes(ar)
+
+ //Challenge #12 alternative solutions
+function getPositives(ar)
+{
+    return ar.filter(el => el >= 0)
+}
+
+let ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+console.log(getPositives(ar))
+
+//Coding challenge #13: Find the maximum number in an array of numbers
+
+function maxNumber(arr){
+    let max = arr[0]
+    arr.forEach((el) => {
+        if(el > max)  return  max = el
+    })
+    console.log(max)
+    }
+
+let ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+maxNumber(ar)
+
+//Coding challenge #14: Print the first 10 Fibonacci numbers without recursion
+    let f0 = 0;
+    console.log(f0)
+    
+    let f1 = 1;
+    console.log(f1)
+    
+    for(let i = 2; i < 10; i++)
+    {
+        let fi = f1 + f0;
+        console.log(fi);
+        
+        f0 = f1;
+        f1 = fi;
+    }
+
+// Coding challenge #15: Create a function that will find the nth Fibonacci number using recursion
+let n = 9;
+     
+    // function returns the Fibonacci number
+    function fib(n) {
+    if (n <= 1)
+        return n;
+    return fib(n-1) + fib(n-2);
+}
+  
+    //function call
+    console.log(fib(n));
+
+//Coding challenge #16: Create a function that will return a Boolean specifying if a number is prime
+function isPrime(n) {
+    if(n === 1){
+        return false
+    }else if(n === 2){
+        return true
+    }else{
+        let maxDiv = Math.sqrt(n)
+        for( let i = 2; i <= maxDiv; i++ ){
+            if(n % i === 0) return false
+        }
+        return true
+    }
+}
+
+console.log(isPrime(17))
