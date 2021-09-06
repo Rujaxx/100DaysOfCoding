@@ -165,10 +165,8 @@ let n = 9;
 
 //Coding challenge #16: Create a function that will return a Boolean specifying if a number is prime
 function isPrime(n) {
-    if(n === 1){
+    if(n <= 1){
         return false
-    }else if(n === 2){
-        return true
     }else{
         let maxDiv = Math.sqrt(n)
         for( let i = 2; i <= maxDiv; i++ ){
@@ -179,3 +177,89 @@ function isPrime(n) {
 }
 
 console.log(isPrime(17))
+
+//Coding challenge #17: Calculate the sum of digits of a positive integer number
+function sumDigits(n){
+    let x = n.toString()
+    let sum = 0
+    for (let i of x) {
+      let add = parseInt(i)
+        sum+=add
+    }
+    return sum
+}
+
+console.log(sumDigits(65656))
+
+//Coding challenge #18: Print the first 100 prime numbers
+function primeNumbers(nPrimes)
+{
+   for(let i=0;i<nPrimes;i++){
+        if(isPrime(i)){
+        console.log(i)
+        }
+   }
+}
+
+function isPrime(n) {
+    if(n <= 1){
+        return false
+    }else{
+        let maxDiv = Math.sqrt(n)
+        for( let i = 2; i <= maxDiv; i++ ){
+            if(n % i === 0) return false
+        }
+        return true
+    }
+}
+
+console.log(primeNumbers(10))
+
+
+//Coding challenge #19: Create a function that will return in an array the first "nPrimes" prime numbers greater than a particular number "startAt"
+
+function printPrimes(nPrimes,startAt)
+{
+  let arr =[]
+  let size  = startAt + nPrimes
+   for(let i=startAt;i < size;i++){
+        if(isPrime(i)){
+        arr.push(i)
+        }
+   }
+  return arr
+}
+
+function isPrime(n) {
+    if(n <= 1){
+        return false
+    }else{
+        let maxDiv = Math.sqrt(n)
+        for( let i = 2; i <= maxDiv; i++ ){
+            if(n % i === 0) return false
+        }
+        return true
+    }
+}
+
+console.log(printPrimes(10,100))
+
+//Coding challenge #20: Rotate an array to the left 1 position
+
+function rotateLeft(arr){
+    let first = arr.shift()
+    arr.push(first)
+    return arr
+}
+
+console.log(rotateLeft([1,2,3]))
+
+//Coding challenge #21: Rotate an array to the right 1 position
+
+function rotateRight(arr){
+    let last = arr.pop()
+    arr.unshift(last)
+    return arr
+}
+
+console.log(rotateRight([1,2,3]))
