@@ -263,3 +263,41 @@ function rotateRight(arr){
 }
 
 console.log(rotateRight([1,2,3]))
+
+
+// Coding challenge #22: Reverse an array
+function reverseArray(arr) {
+    let result = []
+    let end = arr.length - 1
+    for (let i = end ; i >= 0; i--){
+        result.push(arr[i])
+    }
+    return result
+}
+
+console.log(reverseArray([1,2,3]))
+
+// Coding challenge #23: Reverse a string
+function reverseString(str) {
+    let result = ""
+    let end = str.length - 1
+    for (let i = end ; i >= 0; i--){
+        result += str[i]
+    }
+    return result
+}
+
+console.log(reverseString("rujan"))
+
+// Coding challenge #24: Create a function that will merge two arrays and return the result as a new array
+function mergeArrays (arr1,arr2){
+    let mergedArray = []
+    arr1.forEach((x)=> mergedArray.push(x))
+    arr2.forEach((x)=> mergedArray.push(x))
+    return mergedArray
+}
+
+let ar1 = [1, 2, 3];
+let ar2 = [4, 5, 6];
+
+console.log(mergeArrays(ar1, ar2))
