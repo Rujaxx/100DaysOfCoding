@@ -301,3 +301,86 @@ let ar1 = [1, 2, 3];
 let ar2 = [4, 5, 6];
 
 console.log(mergeArrays(ar1, ar2))
+
+
+// Coding challenge #25: Create a function that will receive two arrays of numbers as arguments and 
+// return an array composed of all the numbers that are either in the first array or second array but 
+// not in both
+function mergeArrays (arr1,arr2){
+    let mergedArray = []
+    arr1.forEach((x)=>{
+        if(!arr2.includes(x))
+        return mergedArray.push(x)
+    }
+    )
+    arr2.forEach((x)=>{
+        if(!arr1.includes(x))
+        return mergedArray.push(x)
+    }
+    )
+    return mergedArray
+}
+
+let ar1 = [1, 2, 3, 10, 5, 3, 14];
+let ar2 = [1, 4, 5, 6, 14];
+console.log(mergeArrays(ar1, ar2))
+
+// Coding challenge #26: Create a function that will receive two arrays and will return an array with 
+// elements that are in the first array but not in the second
+function mergeArrays (arr1,arr2){
+    let mergedArray = []
+    arr1.forEach((x)=>{
+        if(!arr2.includes(x))
+        return mergedArray.push(x)
+    }
+    )
+    return mergedArray
+}
+
+let ar1 = [1, 2, 3, 10, 5, 3, 14];
+let ar2 = [1, 4, 5, 6, 14];
+console.log(mergeArrays(ar1, ar2))
+
+//Coding challenge #27: Create a function that will receive an array of numbers as argument and will
+//  return a new array with distinct elements
+function distinctArray(arr){
+    let newArr = []
+      arr.forEach((x)=> {
+          
+          if(!newArr.includes(x))
+          return newArr.push(x)
+      }
+      )
+      return newArr
+  }
+  
+  let ar1 = [1, 2, 3, 4, 1, 5, 3, 5];
+  console.log(distinctArray(ar1))
+
+
+//   Coding challenge #28: Calculate the sum of first 100 prime numbers
+function primeSum(x) {
+    let sum = 0
+    for(let i = 0; i <= x; i++){
+        if(isPrime(i)) {
+            sum += i
+        }else {
+         sum += 0
+    }
+}
+return sum
+}
+
+function isPrime(n) {
+    if(n <= 1){
+        return false
+    }else{
+        let maxDiv = Math.sqrt(n)
+        for( let i = 2; i <= maxDiv; i++ ){
+            if(n % i === 0) return false
+        }
+        return true
+    }
+}
+console.log(primeSum(100))
+
