@@ -460,3 +460,78 @@ let n2 = "1290923909029309499";
 let sum = add(n1, n2);
 
 console.log(n1, "\n", n2, "\n", sum);
+
+
+// Coding challenge #32. Create a function that will capitalize the first letter of each word in a text
+function capitalizeWords(text)
+{
+    let text2 = "";
+    
+    for(let i = 0; i < text.length; i++)
+    {
+        let currChr = text[i];
+        let prevChr = i > 0 ? text[i - 1] : " ";
+        
+        if (!isSeparator(currChr) && isSeparator(prevChr))
+        {
+            currChr = currChr.toUpperCase();
+        }
+        
+        text2 += currChr;
+    }
+    
+    return text2;
+}
+
+function isSeparator(c){
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
+    return separators.includes(c)
+}
+
+console.log(capitalizeWords("Create a function that will capitalize the first letter of each word in a text"))
+
+// Coding challenge #33. Calculate the sum of numbers received in a comma delimited string
+function sumDeci(n){
+    let sum = 0
+    ar = n.split(",");
+    for (let i of ar){
+        sum += parseFloat(i)
+    } 
+    return sum
+}
+
+console.log(sumDeci("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"))
+
+//Coding challenge #34. Create a function that will return an array with words inside a text
+function getWords(text)
+{
+    let startWord = -1;
+    let ar = [];
+    
+    for(let i = 0; i <= text.length; i++)
+    {
+        let c = i < text.length ? text[i] : " ";
+
+        if (!isSeparator(c) && startWord < 0)
+        {
+            startWord = i;
+        }
+        
+        if (isSeparator(c) && startWord >= 0)
+        {
+            let word = text.substring(startWord, i);
+            ar.push(word);
+            
+            startWord = -1;
+        }
+    }
+
+    return ar;
+}
+
+function isSeparator(c){
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
+    return separators.includes(c)
+}
+
+console.log(getWords("Create a function that will capitalize the first letter of each word in a text"))
