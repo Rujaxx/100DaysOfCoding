@@ -516,7 +516,6 @@ function getWords(text)
         {
             startWord = i;
         }
-        
         if (isSeparator(c) && startWord >= 0)
         {
             let word = text.substring(startWord, i);
@@ -535,3 +534,52 @@ function isSeparator(c){
 }
 
 console.log(getWords("Create a function that will capitalize the first letter of each word in a text"))
+
+
+
+// Coding challenge #35. Create a function to convert a CSV text to a “bi-dimensional” array
+
+let data = "John;Smith;954-000-0000\nMich;Tiger;305-000-0000\nMonique;Vasquez;103-000-0000";
+
+function csvToArray(data)
+{
+    let arLines = data.split("\n");
+
+    for(let i = 0; i < arLines.length; i++)
+    {
+        let arLine = arLines[i].split(";");
+        arLines[i] = arLine;
+    }
+    
+    return arLines;
+}
+
+let ar = csvToArray(data);
+console.log(JSON.stringify(ar));
+
+// Coding challenge #36. Create a function that converts a string to an array of characters
+
+function getChars(s)
+{
+    return Array.from(s);
+}
+
+console.log(getChars("I like JavaScript"));
+
+
+
+// Coding challenge #37. Create a function that will convert a string in an array containing the ASCII codes of each character
+function getCharCodes(s)
+{
+    let ar = [];
+    
+    for(let i = 0; i < s.length; i++)
+    {
+        let code = s.charCodeAt(i);
+        ar.push(code);
+    }
+    
+    return ar;
+}
+
+console.log(getCharCodes("I like JavaScript"));
