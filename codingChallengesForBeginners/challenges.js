@@ -647,3 +647,61 @@ let textDec = decrypt(textEnc, 13);
 console.log(text);
 console.log(textEnc);
 console.log(textDec);
+
+//Coding challenge #40. Implement the bubble sort algorithm for an array of numbers
+function bubbleSort(ar)
+{
+    let shouldSort = true;
+    let length = ar.length;
+
+    while(shouldSort)
+    {
+        shouldSort = false;
+        length--;
+        
+        for(let i = 0; i < length; i++)
+        {
+            let a = ar[i];
+            if ( a > ar[i+1] )
+            {
+                ar[i] = ar[i+1];
+                ar[i+1] = a;
+                shouldSort = true;
+            }
+        }
+    }
+}
+
+let ar = [23, 1000, 1, -1, 8, 3];
+console.log(ar);
+bubbleSort(ar);
+console.log(ar);
+
+//Coding challenge #41. Create a function to calculate the distance between two points defined by their x, y coordinates
+function getDistance(x1, y1, x2, y2)
+{
+    let l1 = x2 - x1;
+    let l2 = y2 - y1;
+    
+    return Math.sqrt(l1 * l1 + l2 * l2);
+}
+
+console.log(getDistance(100, 100, 400, 300));
+
+//Coding challenge #42. Create a function that will return a Boolean value indicating if two circles defined by center coordinates
+// and radius are intersecting
+
+function collisionCircleCircle(circle1X, circle1Y, circle1R, circle2X, circle2Y, circle2R)
+{
+    return getDistance(circle1X, circle1Y, circle2X, circle2Y) <= circle1R + circle2R;
+}
+
+// Calculate the distance between the two specified points
+function getDistance(x1, y1, x2, y2)
+{
+    let l1 = x2 - x1;
+    let l2 = y2 - y1;
+    
+    return Math.sqrt(l1 * l1 + l2 * l2);
+}
+console.log(collisionCircleCircle(200, 200, 100, 300, 300, 50));
