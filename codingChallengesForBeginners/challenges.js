@@ -705,3 +705,60 @@ function getDistance(x1, y1, x2, y2)
     return Math.sqrt(l1 * l1 + l2 * l2);
 }
 console.log(collisionCircleCircle(200, 200, 100, 300, 300, 50));
+
+//Coding challenge 43. Create a function that will receive a bi-dimensional array as argument and a number and will extract 
+//as a unidimensional array the column specified by the number
+function extractCol(ar, colNo)
+{
+    let arCol = [];
+    
+    for(let i = 0; i < ar.length; i++)
+    {
+        arCol.push(ar[i][colNo]);
+    }
+    
+    return arCol;
+}
+
+let ar = [ ["John", 120],
+            ["Jane", 115],
+            ["Thomas", 123],
+            ["Mel", 112],
+            ["Charley", 122]
+         ];
+
+let numbers = extractCol(ar, 1);
+console.log(numbers);
+
+//Coding challenge #44. Create a function that will convert a string containing a binary number into a number
+function binaryToNumber(sBinary)
+{
+    return parseInt(sBinary, 2);
+}
+
+console.log(binaryToNumber("11111111"));
+
+
+//Coding challenge #45. Create a function to calculate the sum of all the numbers in a jagged array 
+//(array contains numbers or other arrays of numbers on an unlimited number of levels)
+
+function sumArray(ar)
+{
+    let sum = 0;
+    
+    for(let el of ar)
+    {
+        if (Array.isArray(el))
+        {
+            el = sumArray(el);
+        }
+        
+        sum += el;
+    }
+    
+    return sum;
+}
+
+let ar = [1, 2, [15, [23], [5, 12]], [100]];
+
+console.log(sumArray(ar));
