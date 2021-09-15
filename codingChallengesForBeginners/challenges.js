@@ -762,3 +762,58 @@ function sumArray(ar)
 let ar = [1, 2, [15, [23], [5, 12]], [100]];
 
 console.log(sumArray(ar));
+
+//Coding challenge #46-a. Find the maximum number in a jagged array of numbers or array of numbers
+// Use recursion to find the maximum numeric value in an array of arrays
+function findMax(ar)
+{
+    let max = -Infinity;
+
+    // Cycle through all the elements of the array
+    for(let i = 0; i < ar.length; i++)
+    {
+        let el = ar[i];
+
+        // If an element is of type array then invoke the same function
+        // to find out the maximum element of that subarray
+        if ( Array.isArray(el) )
+        {
+            el = findMax( el );
+        }
+
+        if ( el > max )
+        {
+            max = el;
+        }
+    }
+
+    return max;
+}
+
+let ar = [2, 4, 10, [12, 4, [100, 99], 4], [3, 2, 99], 0];
+
+let max = findMax(ar);
+console.log("Max  = ", max);
+
+//Coding challenge #47. Deep copy a jagged array with numbers or other arrays in a new array
+function copyArray(ar)
+{
+    let ar2 = [];
+    
+    for(let el of ar)
+    {
+        if (Array.isArray(el))
+        {
+            el = copyArray(el);
+        }
+        
+        ar2.push(el);
+    }
+    
+    return ar2;
+}
+
+let ar1 = [2, 4, 10, [12, 4, [100, 99], 4], [3, 2, 99], 0];
+let ar2 = copyArray(ar1);
+
+console.log(ar2);
