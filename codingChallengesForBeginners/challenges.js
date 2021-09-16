@@ -817,3 +817,105 @@ let ar1 = [2, 4, 10, [12, 4, [100, 99], 4], [3, 2, 99], 0];
 let ar2 = copyArray(ar1);
 
 console.log(ar2);
+
+//Coding challenge #48. Create a function to return the longest word(s) in a string
+function getLongestWords(text)
+{
+    let words = getWords(text);
+    
+    let maxSize = 0;
+    let maxPositions = [];
+    
+    for(let i = 0; i < words.length; i++)
+    {
+        let currWordSize = words[i].length;
+        
+        if (currWordSize > maxSize)
+        {
+            maxSize = currWordSize;
+            maxPositions = [ i ];
+        }
+        else if (currWordSize === maxSize)
+        {
+            maxPositions.push(i);
+        }
+    }
+
+    return getElements(words, maxPositions);
+}
+
+// Get only the elements from specified positions from the array
+function getElements(ar, arPositions)
+{
+    let arNew = [];
+    
+    for(let pos of arPositions)
+    {
+        arNew.push(ar[pos]);
+    }
+    
+    return arNew;
+}
+
+// Returns an array with the words from specified text
+function getWords(text)
+{
+    let startWord = -1;
+    let ar = [];
+    
+    for(let i = 0; i <= text.length; i++)
+    {
+        let c = i < text.length ? text[i] : " ";
+
+        if (!isSeparator(c) && startWord < 0)
+        {
+            startWord = i;
+        }
+        
+        if (isSeparator(c) && startWord >= 0)
+        {
+            let word = text.substring(startWord, i);
+            ar.push(word);
+            
+            startWord = -1;
+        }
+    }
+
+    return ar;
+}
+
+function isSeparator(c)
+{
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?", "(", ")"];
+    return separators.includes(c);
+}   
+
+let text = "Create a function to return the longest word(s) in a sentance.";
+
+console.log(getLongestWords(text));
+
+//Coding challenge #49. Shuffle an array of strings
+// Shuffle array implemented using Fisher–Yates shuffle algorithm
+function shuffleArray(ar)
+{
+    for(let i = ar.length - 1; i > 0; i--)
+    {
+        let j = randomInt(0, i - 1);
+        
+        let t = ar[i];
+        ar[i] = ar[j];
+        ar[j] = t;
+    }
+    
+    return ar;
+}
+
+// Get a random int between min and max (both included)
+function randomInt(min, max) 
+{
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+} 
+
+let ar = ["Shuffle", "an", "array", "of", "strings"];
+
+console.log(shuffleArray(ar));
