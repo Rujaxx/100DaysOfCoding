@@ -919,3 +919,71 @@ function randomInt(min, max)
 let ar = ["Shuffle", "an", "array", "of", "strings"];
 
 console.log(shuffleArray(ar));
+
+//Coding challenge #50. Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.
+function getRandomNumbers(n)
+{
+    let ar = [];
+    
+    for(let i = 1; i <= n; i++)
+    {
+        ar.push(i);
+    }
+    
+    shuffleArray(ar);
+    
+    return ar;
+}
+
+// Shuffle array implemented using Fisher–Yates shuffle algorithm
+function shuffleArray(ar)
+{
+    for(let i = ar.length - 1; i > 0; i--)
+    {
+        let j = randomInt(0, i - 1);
+        
+        let t = ar[i];
+        ar[i] = ar[j];
+        ar[j] = t;
+    }
+    
+    return ar;
+}
+
+// Get a random int between min and max (both included)
+function randomInt(min, max) 
+{
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+console.log(getRandomNumbers(10));
+
+//Coding challenge #51. Find the frequency of characters inside a string. Return the result as an array of objects.
+// Each object has 2 fields: character and number of occurrences.
+function getCharFrequency(text)
+{
+    let ar = [];
+
+    for(let chr of text)
+    {
+        updateFrequency(ar, chr);
+    }
+    
+    return ar;
+}
+
+function updateFrequency(ar, chr)
+{
+    for(let el of ar)
+    {
+        if (el.chr === chr)
+        {
+            el.count++;
+        }
+    }
+    
+    ar.push({ chr : chr, count : 1 });
+}
+
+let ar = getCharFrequency("Find the frequency of characters inside a string");
+console.log(JSON.stringify(ar));
