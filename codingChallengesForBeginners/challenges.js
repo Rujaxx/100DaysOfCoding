@@ -1082,3 +1082,26 @@ function add(sNumber1, sNumber2)
 }
 
 console.log(factorial(70));
+
+//find median of two arrays
+
+function median(arr1,arr2){
+    let i = ''
+    arr1.push(...arr2)
+    arr1.sort((a,b) => a - b)
+    console.log(arr1)
+    let n = arr1.length
+    console.log(n)
+    if( n % 2 === 1){
+      let i = (n+1)/2
+      console.log(arr1[i - 1])
+    }else{
+      let i = (arr1[(n/2)-1] + arr1[((n/2)+1)-1])/2
+      console.log(i)
+    }
+  }
+  
+  let arr1 = [2]
+  let arr2 = [4]
+  
+  median(arr1,arr2)
