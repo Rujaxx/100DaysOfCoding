@@ -1101,7 +1101,36 @@ function median(arr1,arr2){
     }
   }
   
-  let arr1 = [2]
-  let arr2 = [4]
+  let arr1 = [2,5,6]
+  let arr2 = [4,7,8]
   
   median(arr1,arr2)
+
+//finding the missing number in an array
+function missing(arr,n){
+    let total = Math.floor(n*(n+1)/2);
+    let sum =  arr.reduce(function(a, b) { return a + b; }, 0);
+    console.log(total- sum)
+}
+let arr = [1,2,4,5]
+let n = 5
+missing(arr,n)
+
+//Push negative elements to the end of the array 
+function negativeEl(arr){
+    let result =[]
+     arr.forEach((x,i) => {
+     if(x >= 0){
+      result.push(x)
+        }
+        })
+     arr.forEach((x,i) => {
+     if(x < 0){
+      result.push(x)
+        }
+      })
+  console.log(result.join(' '))
+}
+
+let arr= [1 ,-1 ,-3 , -2, 7, 5, 11, 6];
+negativeEl(arr)
