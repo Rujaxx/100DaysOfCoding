@@ -1134,3 +1134,26 @@ function negativeEl(arr){
 
 let arr= [1 ,-1 ,-3 , -2, 7, 5, 11, 6];
 negativeEl(arr)
+
+//Given a list of numbers and a number k, return whether any two numbers from the list add up to k
+function findPair(arr,k){
+    let set = new Set();
+    let n = arr.length
+    let flag = false
+    
+    for(let i = 0; i < n;i++){
+      let check = k - arr[i]
+      if(set.has(check)){
+        console.log("Pair with given " + k + " is (" + arr[i] + "," + check + ")" )
+        flag = true
+      }
+      set.add(arr[i]);
+    }
+    if(!flag){
+       console.log('Pair not found')
+    }
+  }
+  
+  let A = [ 1, 4, 45, 6, 10, 8 ];
+  let n = 16;
+  findPair(A, n);
