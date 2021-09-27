@@ -1157,3 +1157,32 @@ function findPair(arr,k){
   let A = [ 1, 4, 45, 6, 10, 8 ];
   let n = 16;
   findPair(A, n);
+
+
+  //fibonacci using recursion
+  function fibonacci(num) {
+    if(num <= 2) return 1
+      return fibonacci(num - 1) + fibonacci(num - 2);
+  }
+
+  console.log(fibonacci(10))
+
+//   Count the digits of a given number using recursion 
+function count(num) {
+    if (num < 10)
+        return 1;
+  return 1 + count((num / 10));
+}
+
+console.log(count(20))
+
+//factorial using recursion
+function factorial(num) {
+    if(num == 0){
+    return num = 1
+  }else{
+    return num * factorial(num-1)
+  }
+}
+
+console.log(factorial(10))
