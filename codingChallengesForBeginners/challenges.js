@@ -1186,3 +1186,44 @@ function factorial(num) {
 }
 
 console.log(factorial(10))
+
+//Given a value V, if we want to make change for V cents, and we have infinite supply of each of
+// C = { C1, C2, .. , Cm} valued coins, what is the minimum number of coins to make the change? 
+//If it’s not possible to make change, print -1.
+function calMin(weight, coinArray) {
+    let dp = new Array(weight + 1).fill(weight + 1)
+    dp[0] = 0
+    let m = coinArray.length
+    for(let i = 0 ; i <= weight ; i++){
+        for(let j = 0; j < m; j++)
+            if(coinArray[j] <= i){
+                dp[i] = Math.min(dp[i],1 + dp[i - coinArray[j]])
+            }
+    }
+   return dp[weight] > weight ? -1 : dp[weight]
+
+}
+
+let weight = 11
+let arr = [9, 6, 5, 1]
+console.log(calMin(weight,arr))
+
+//Given an amount and the denominations of coins available, determine how many ways change
+// can be made for amount. There is a limitless supply of each coin type. 
+
+function getWays(n,c) {
+    
+    let dp = new Array(n + 1).fill(0)
+    dp[0] = 1
+    let m = c.length
+    for(let i = 0 ; i < m ; i++){
+        for(let j = c[i]; j <= n; j++)
+            dp[j] += dp[j - c[i]]
+    }
+    return dp[n]
+}
+
+let n = 3
+let c = [8,3,1,2]
+
+console.log(getWays(n,c))
