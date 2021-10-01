@@ -1227,3 +1227,52 @@ let n = 3
 let c = [8,3,1,2]
 
 console.log(getWays(n,c))
+
+//Choose some pivot element,p, and partition your unsorted array,arr, into three smaller arrays:
+//left,right, and equal, where each element in left < p , each element in right > p , and each 
+//element in equal = p
+
+
+function quickSort(arr) {
+    let n = arr.length
+    let p = arr[0]
+    let l = []
+    let r = []
+    for (let i = 1;i < n; i++){
+        if(arr[i] <= p){
+            l.push(arr[i])
+        }else{
+            r.push(arr[i])
+        }
+    }
+    return console.log(l.concat(p,r))
+
+}
+
+let arr = [4,2,5,7,3]
+
+quickSort(arr1)
+
+//In this challenge, print the array after each iteration of the insertion sort, i.e., whenever 
+//the next element has been inserted at its correct position. Since the array composed of just 
+//the first element is already sorted, begin printing after placing the second element.
+
+function insertionSort2(n, arr) {
+    for (let i = 1; i < n; i++){
+        let current = arr[i]
+        let j = i - 1
+        while(j >= 0 && arr[j] > current){
+            arr[j+1] = arr[j]
+            j--
+        }
+        arr[j+1] = current
+        console.log(arr.join(" "))
+    }
+
+
+}
+
+let arr = [1, 4, 3, 5, 6, 2]
+let n = 6
+
+insertionSort2(n,arr)
