@@ -1276,3 +1276,58 @@ let arr = [1, 4, 3, 5, 6, 2]
 let n = 6
 
 insertionSort2(n,arr)
+
+// Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls
+// itself for the two halves, and then merges the two sorted halves. The merge() function is used
+// for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m]
+// and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one
+function mergeSort(num, arr) {
+    if (num < 2) {
+             return arr;
+         }
+  
+         if (num > 1) {
+             let mid = Math.floor(arr.length / 2);
+  
+             // Split left part
+             let left = arr.slice(0,mid)
+  
+             // Split right part
+             let right = arr.slice(mid)
+             merge(mergeSort(mid,left),mergeSort(mid,right))
+         }
+
+ }
+
+function merge(left,right){
+             let arr = []
+             let i = 0;
+             let j = 0;
+             let k = 0;
+  
+             // Merge left and right arrays
+             while (i < left.length && j < right.length) {
+                 if (left[i] < right[j]) {
+                     arr[k] = left[i];
+                     i++;
+                 } else {
+                     arr[k] = right[j];
+                     j++;
+                 }
+                 k++;
+             }
+             // Collect remaining elements
+             while (i < left.length) {
+                 arr[k] = left[i];
+                 i++;
+                 k++;
+             }
+             while (j < right.length) {
+                 arr[k] = right[j];
+                 j++;
+                 k++;
+             }
+             return arr.join(' ')
+         }
+
+merge(6,[12,11,13,5,6,7])
