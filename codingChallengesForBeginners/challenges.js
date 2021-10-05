@@ -1331,3 +1331,21 @@ function merge(left,right){
          }
 
 merge(6,[12,11,13,5,6,7])
+
+
+//Check whether number is automorphic or not
+function isAutomorphic(num){
+    let square = num * num
+
+    while(num > 0){
+        if(num % 10 != square % 10){
+            return console.log(num + ' is not automorphic' )
+            num = num/10
+            square = square/10
+        }
+        
+    }
+    return console.log(num + ' is automorphic' )
+}
+
+isAutomorphic(5)
