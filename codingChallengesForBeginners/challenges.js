@@ -1349,3 +1349,41 @@ function isAutomorphic(num){
 }
 
 isAutomorphic(5)
+//Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+//For example, the square matrix arr
+// 1 2 3
+// 4 5 6
+// 9 8 9  
+//is shown below: 
+function diagonalDifference(arr) {
+    // Write your code here
+    let diag1 = 0
+    let diag2 = 0
+    let n = arr.length
+    for(let i =0 ; i < n; i++){
+        diag1 += arr[i][i]
+        diag2 += arr[i][n-i-1]
+        }
+    
+    return Math.abs(diag1 - diag2)
+}
+
+
+function diagonalDifference(arr) {
+    // Write your code here
+    let diag1 = 0
+    let diag2 = 0
+    let n = arr.length
+    for(let i =0 ; i < n; i++){
+        for(let j =0 ; j < n; j++){
+            if(i==j){
+               diag1 += arr[i][j]
+            }
+            if(i == n- j -1){
+                diag2 += arr[i][j]
+            }
+        }
+    }
+    return Math.abs(diag1 - diag2)
+}
