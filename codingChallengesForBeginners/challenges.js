@@ -1387,3 +1387,60 @@ function diagonalDifference(arr) {
     }
     return Math.abs(diag1 - diag2)
 }
+
+//Given five positive integers, find the minimum and maximum values that can be calculated by 
+// summing exactly four of the five integers. Then print the respective minimum and maximum values
+//  as a single line of two space-separated long integers. 
+function miniMaxSum(arr) {
+    // Write your code here
+    let total = 0
+    for(let el of arr){
+        total += el
+    }
+    let min = total - Math.max(...arr)
+    let max = total - Math.min(...arr)
+    console.log(min,max)
+}
+
+miniMaxSum([4,5,6,8,9])
+
+//You are in charge of the cake for a child's birthday. You have decided the cake will have one 
+//candle for each year of their total age. They will only be able to blow out the tallest of the 
+//candles. Count how many candles are tallest. 
+function birthdayCakeCandles(candles) {
+    // Write your code here
+    let tallest = Math.max(...candles)
+    let count = 0;
+    for(let el of candles){
+        if(el === tallest){
+            count++
+        }
+    }
+    return count
+}
+
+birthdayCakeCandles([1,2,4,5,4])
+
+
+//Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+// Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+// - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock. 
+function timeConversion(s) {
+    let arr = s.slice(0,8).split(':')
+    // Write your code here
+    if(!s.endsWith("PM")){
+        if(arr[0] == 12){
+          arr[0] = "00"
+        }
+    }else{
+      if(arr[0] == 12){
+            arr[0] = "12"
+        }else{
+            arr[0] = Number(arr[0]) + 12
+        }
+    }
+    console.log(arr.join(':'))
+}
+
+let s = "07:15:30PM"
+timeConversion(s)
