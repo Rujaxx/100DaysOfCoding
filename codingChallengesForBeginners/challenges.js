@@ -1479,3 +1479,20 @@ function gradingStudents(grades) {
     return arr
 }
 
+//Given an array of integers. Find a peak element in it. An array element is a peak if it is 
+//NOT smaller than its neighbours. For corner elements, we need to consider only one neighbour. 
+function findPeak(arr,n){
+    let result = []
+    if(arr[0] >= arr[1]) return arr[0] //check first element
+    if(arr[n-1] >= arr[n-2]) return arr[0] //check last element
+    for( let i = 1; i < n ; i++){
+        if(arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]){
+            return result.push(arr[i])
+        }
+    }
+    console.log(result.join(" or "))
+}
+
+var arr = [1, 3, 20, 4, 1, 0];
+var n = arr.length;
+findPeak(arr,n)
