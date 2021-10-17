@@ -1539,22 +1539,22 @@ kangaroo(0,3,4,2)
 return whether the brackets are balanced (well-formed).
 For example, given the string "([])[]({})", you should return true.
 Given the string "([)]" or "((()", you should return false.*/
-function checkBalance(str){
-    let arr = str.split("")
-    let count = 0
-    for (let el in arr){
-        if(el === "(" || el === "{" || el === "["){
-            return count++
-        }else if(el === ")" || el === "}" || el === "]"){
-            return count++
-        }
-    }
-    if(count === 0){
-        console.log("Yes")
-    }else{
-        console.log("No")
-    }
-}
-
-let str = "([])[]({})"
-checkBalance(str)
+function isValid(s) {
+    let st = [];
+    const legend = {
+      '(': ')',
+      '{': '}',
+      '[': ']'
+    };
+   
+   for (let i = 0; i < s.length; i++) {
+      if (s[i] === '(' || s[i] === '{' || s[i] === '[') {
+        st.push(s[i]);
+      } else if (legend[st.pop()] !== s[i]) {
+        return false;
+      }
+    }   return st.length ? false : true;
+ };
+ 
+ let s = "({)[]}"
+ console.log(isValid(s))
