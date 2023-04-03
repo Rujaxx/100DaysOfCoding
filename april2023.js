@@ -30,3 +30,26 @@ let onYourRight = (arr) => {
 }
 
 onYourRight([3, 4, 9, 6, 1])
+
+
+// Given an array of integers, find the maximum XOR of any two elements.
+
+function maxXor(arr)
+{
+ 
+    let maxXor = 0;
+    let n = arr.length
+    // Calculating xor of each pair
+    for (let i = 0; i < n; i++) {
+        let j = i + 1
+        while(j<n){
+            maxXor = Math.max(maxXor,arr[i] ^ arr[j]);
+            j++
+        } 
+           
+    }
+    console.log(maxXor);
+}
+
+let arr =  [ 25, 10, 2, 8, 5, 3 ];
+maxXor(arr)
