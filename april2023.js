@@ -85,3 +85,26 @@ function clockAngle(h,m){
 // clockAngle(11,60)
 // clockAngle(12,60)
 // clockAngle(3,30)
+
+
+// Given an array of integers where every integer occurs three times except for one integer, which only occurs once, find and return the non-duplicated integer.
+
+// For example, given [6, 1, 3, 3, 3, 6, 6], return 1. Given [13, 19, 13, 13], return 19.
+
+let findNonDuplicate = (arr) =>{
+let obj = {}
+for(let x of arr){
+  if(!obj.hasOwnProperty(x)){
+      obj[x] = 1
+  }else{
+    obj[x] = obj[x]+1
+  } 
+}
+
+let output = Object.keys(obj).find(key => obj[key] === 1);
+return parseInt(output)
+}
+let exArr1= [6, 4, 3, 3, 3, 6, 6]
+let exArr2= [13, 19, 13, 13]
+
+console.log(findNonDuplicate(exArr1))
