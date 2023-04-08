@@ -110,3 +110,23 @@ let exArr2= [13, 19, 13, 13]
 console.log(findNonDuplicate(exArr1))
 
 // 
+let sortCount = (arr) =>{
+    for(let x of arr){
+        let strArr = x.split("")
+        let l = x.length
+        let count = 0
+        for(let i=0; i < l; i++){
+            if(x ==l){
+                break;
+            }
+          if(x[i]<x[i+1]){
+            count++
+          }else{
+            count--
+          }  
+        }
+      console.log(count)
+    }
+}
+
+sortCount(["hello", "geeks"])
